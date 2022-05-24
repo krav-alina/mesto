@@ -1,0 +1,7 @@
+.form__button {
+    border: 1px solid #FFFFFF;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin:0;
+  }

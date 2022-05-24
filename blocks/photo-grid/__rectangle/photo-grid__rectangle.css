@@ -1,0 +1,23 @@
+.photo-grid__rectangle{
+    max-width: 282px;
+    background-color: aliceblue;
+    max-height: 79px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:914px){
+    .photo-grid__rectangle{
+        max-width: 180px;
+    }  
+} 
+
+@media screen and (max-width:620px){
+    .photo-grid__rectangle{
+        max-width:282px;
+    }  
+} 
