@@ -1,4 +1,4 @@
-.form__button_size_small{
+.profile__button_size_small{
     font-size: 0.8em;
     width: 24px;
     height: 24px;
@@ -8,7 +8,7 @@
 }    
 
 @media screen and (max-width:620px){
-    .form__button_size_small{
+    .profile__button_size_small{
       margin-top:8px;
       width: 18px;
       height: 18px;
@@ -16,7 +16,7 @@
     }  
   } 
 
-  .form__button_size_small:hover {
+  .profile__button_size_small:hover {
     opacity: .8;
     transition: ease-out 2s;
   } 

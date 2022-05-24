@@ -1,6 +1,6 @@
 const popup = document.querySelector('.popup');
 const popupContainer = document.querySelector('.popup__container');
-const editButton = document.querySelector('.form__button_size_small');
+const editButton = document.querySelector('.profile__button_size_small');
 const closeButton = document.querySelector('.popup__close');
 const saveButton = document.querySelector('.popup__button');
 const formElement = document.querySelector('.popup__form');
