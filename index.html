@@ -11,66 +11,65 @@
 <body>
   <div class="page">
     <header class="header">
-      <img src="./images/__logo.png" alt="логотип" class="header__logo">
-      <img src="./images/__line.png" alt="линия" class="header__line">
+      <img src="./images/__logo.svg" alt="логотип" class="header__logo">
     </header>
     <main class="content">
       <section class="profile">
-        <img src="./images/__avatar.png" alt="фото героя" class="profile__avatar">
+        <img src="./images/__avatar.jpg" alt="фото героя" class="profile__avatar">
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__button profile__button_size_small">
-              /
+            <button type="button" class="profile__button profile__button_size_small">
+              <img src="./images/__edit.svg" alt="править">
             </button>
           </div>
           <h2 class="profile__subtitle">Исследователь океана</h2>
         </div>
-        <button class="profile__button profile__button_size_big">
-          <img src="./images/__plus.png" alt="плюсик">
+        <button type="button" class="profile__button profile__button_size_big">
+          <img src="./images/__plus.svg" alt="плюсик">
         </button>
       </section>
       <section class="photo-grid">
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="photo-grid__photo">
+          <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Карачаевск</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div>  
         </div>  
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Эльбрус" class="photo-grid__photo">
+          <img src="./images/elbrus.jpg" alt="Эльбрус" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Гора Эльбрус</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div> 
         </div>  
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай" class="photo-grid__photo">
+          <img src="./images/dombay.jpg" alt="Домбай" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Домбай</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div>  
         </div>  
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Эльбрус" class="photo-grid__photo">
+          <img src="./images/elbrus.jpg" alt="Эльбрус" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Гора Эльбрус</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div> 
         </div>  
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай" class="photo-grid__photo">
+          <img src="./images/dombay.jpg" alt="Домбай" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Домбай</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div> 
         </div>  
         <div class="photo-grid__item">
-          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия" class="photo-grid__photo">
+          <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="photo-grid__photo">
           <div class="photo-grid__rectangle">
             <p class="photo-grid__title">Карачаево-Черкессия</p>
-            <img src="./images/__heart.png" alt="сердечко" class="photo-grid__heart">
+            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
           </div>  
         </div>  
       </section>
@@ -81,13 +80,13 @@
     <div class="popup">
       <div class="popup__container">
         <div class="popup__content">
-          <button class="popup__close">
-            <img src="./images/__close.png" alt="крестик">
+          <button type="button" class="popup__close-button">
+            <img src="./images/__close.svg" alt="закрыть окно" class="popup__close-image">
           </button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="popup__form">
-            <input type="text" class="popup__input popup__input_name">
-            <input type="text" class="popup__input popup__input_type">
+          <form name="редактирование профиля" class="popup__form">
+            <input type="text" class="popup__input popup__input_type_name">
+            <input type="text" class="popup__input popup__input_type_occupation">
             <button type="submit" class="popup__button">Сохранить</button>
           </form>
         </div>

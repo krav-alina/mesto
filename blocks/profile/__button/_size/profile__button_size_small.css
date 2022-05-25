@@ -1,5 +1,4 @@
 .profile__button_size_small{
-    font-size: 0.8em;
     width: 24px;
     height: 24px;
     margin-top:15px;
@@ -16,7 +15,4 @@
     }  
   } 
 
-  .profile__button_size_small:hover {
-    opacity: .8;
-    transition: ease-out 2s;
-  } 
+  

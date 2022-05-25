@@ -6,13 +6,7 @@
 }
 
 .photo-grid__heart:hover {
-    opacity: .8;
-    transition: ease-out 2s;
+    opacity: .5;
+    transition: ease-out .5s;
   } 
 
-.photo-grid__heart_active{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #000;
-}  

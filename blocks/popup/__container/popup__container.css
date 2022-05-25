@@ -3,9 +3,9 @@
     align-self: center;
     top: 50%;
     left: 50%;
-    margin-top: -280px; /* Negative half of height. */
+    margin-top: -280px; 
     margin-left: -225px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 430px;
@@ -15,14 +15,12 @@
     border-radius: 10px;
     z-index: 2;
 }    
-.popup__container_isOpen {
-    display: flex;
-}
 
 @media screen and (max-width:620px){
     .popup__container{
+        margin-top: -286px; 
         width: 282px;
         height: 322px;
-        left: 65%;
+        left: 76%;
     }  
 } 

@@ -7,6 +7,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    border: 1px solid #545454;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   } 
 
 @media screen and (max-width:914px){
@@ -18,6 +22,7 @@
 @media screen and (max-width:620px){
   .header{
     max-width:282px;
+    padding-top: 28px;
   }  
 } 
 
