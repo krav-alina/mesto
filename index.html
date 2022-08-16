@@ -77,7 +77,22 @@
     <footer class="footer">
       <p class="footer__copyright">&copy;&nbsp;2020.&nbsp;Mesto&nbsp;Russia</p>
     </footer>
-    <div class="popup">
+    <div id="popupName" class="popup">
+      <div class="popup__container">
+        <div class="popup__content">
+          <button type="button" class="popup__close-button">
+            <img src="./images/__close.svg" alt="закрыть окно" class="popup__close-image">
+          </button>
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <form name="edition" class="popup__form">
+            <input type="text" class="popup__input popup__input_type_name">
+            <input type="text" class="popup__input popup__input_type_occupation">
+            <button type="submit" class="popup__button">Сохранить</button>
+          </form>
+        </div>
+      </div>  
+    </div>
+    <div id="popupPlace" class="popup">
       <div class="popup__container">
         <div class="popup__content">
           <button type="button" class="popup__close-button">
