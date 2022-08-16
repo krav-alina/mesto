@@ -49,7 +49,7 @@ function button (button, popup) {
     });
 };  
 
-button (closeButton, popupName)
+button (closeButton, popupName);
 //closeButton.addEventListener('click', function(){
  //   popupName.classList.remove('popup_open');
 //});
