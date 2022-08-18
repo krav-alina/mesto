@@ -19,6 +19,7 @@
 @import url(../blocks/photo-grid/__title/photo-grid__title.css);
 @import url(../blocks/photo-grid/__heart/photo-grid___heart.css);
 @import url(../blocks/photo-grid/__heart/_active/photo-grid__heart_active.css);
+@import url(../blocks/photo-grid/__basket/photo-grid__basket.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);

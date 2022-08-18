@@ -30,48 +30,16 @@
         </button>
       </section>
       <section class="photo-grid">
-        <div class="photo-grid__item">
-          <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Карачаевск</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
+        <template id="item">
+          <div class="photo-grid__item">
+            <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="photo-grid__photo">
+            <button type="button" class="photo-grid__basket"></button>
+            <div class="photo-grid__rectangle">
+              <p class="photo-grid__title">Карачаевск</p>
+              <button type="button" class="photo-grid__heart"></button>
+            </div>  
           </div>  
-        </div>  
-        <div class="photo-grid__item">
-          <img src="./images/elbrus.jpg" alt="Эльбрус" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Гора Эльбрус</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
-          </div> 
-        </div>  
-        <div class="photo-grid__item">
-          <img src="./images/dombay.jpg" alt="Домбай" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Домбай</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
-          </div>  
-        </div>  
-        <div class="photo-grid__item">
-          <img src="./images/elbrus.jpg" alt="Эльбрус" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Гора Эльбрус</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
-          </div> 
-        </div>  
-        <div class="photo-grid__item">
-          <img src="./images/dombay.jpg" alt="Домбай" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Домбай</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
-          </div> 
-        </div>  
-        <div class="photo-grid__item">
-          <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="photo-grid__photo">
-          <div class="photo-grid__rectangle">
-            <p class="photo-grid__title">Карачаево-Черкессия</p>
-            <img src="./images/__heart.svg" alt="лайк" class="photo-grid__heart">
-          </div>  
-        </div>  
+        </template>  
       </section>
     </main>
     <footer class="footer">

@@ -1,0 +1,15 @@
+.photo-grid__basket{
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: url(../../../images/__basket.svg) center no-repeat;
+    cursor: pointer;
+    border: none;
+}
+
+.photo-grid__basket:hover {
+    opacity: .5;
+    transition: ease-out .5s;
+  } 

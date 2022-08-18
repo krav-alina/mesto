@@ -3,6 +3,7 @@
     grid-template-rows: repeat(2, minmax(min-content,max-content));
     border-radius: 12px;
     margin-top: 3px;
+    position: relative;
 }
 
 .photo-grid__item:nth-child(-n+3){

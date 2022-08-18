@@ -1,8 +1,12 @@
 .photo-grid__heart {
-    max-width: 22px;
-    max-height: 19px;
+    width: 22px;
+    height: 19px;
     margin-right:15px;
     cursor: pointer;
+    background: url(../../../images/__heart.svg) center no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    border: none;
 }
 
 .photo-grid__heart:hover {

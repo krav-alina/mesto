@@ -75,36 +75,71 @@ formElement.addEventListener('submit', function(event){
 });
 
 
-const copy = listItem.cloneNode(true);
+function addPlace (titleValue, picValue) {
+  const placeGrid = document.querySelector('.photo-grid');
+
+  const placeContainer = document.createElement('div');
+  placeContainer.classList.add('photo-grid__item');
+
+  const picElement = document.createElement('img');
+  picElement.classList.add('photo-grid__photo');
+  picElement.src = picValue; 
+  
+  const basketButtonElement = document.createElement('button');
+  basketButtonElement.classList.add('photo-grid__basket');
+
+  const rectangleElement = document.createElement('div');
+  rectangleElement.classList.add('photo-grid__rectangle');
+
+  const titleElement = document.createElement('p');
+  titleElement.classList.add('photo-grid__title');
+  titleElement.textContent = titleValue;
+  
+  const likeButtonElement = document.createElement('button');
+  likeButtonElement.classList.add('photo-grid__heart');
+  rectangleElement.append(titleElement, likeButtonElement);
+  rectangleElement.querySelector('.photo-grid__heart').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('photo-grid__heart_active');
+  }); 
+  placeContainer.append(picElement, basketButtonElement, rectangleElement);
+  placeGrid.append(placeContainer);
+}
+
+initialCards.forEach (function(item){
+  addPlace(item.name, item.link);
+});
+
+
 formPlace.addEventListener('submit', function(event){
   event.preventDefault();
-  let rectangle = null;
   let name = null;
-  let photo = null;
-  for (let i = 0; i < copy.childNodes.length; i++) {
-      if (copy.childNodes[i].className == "photo-grid__photo") {
-        photo = copy.childNodes[i];
-        break;
-      }       
-  }
-  for (let i = 0; i < copy.childNodes.length; i++) {
-    if (copy.childNodes[i].className == "photo-grid__rectangle") {
-      rectangle = copy.childNodes[i];
+  const itemTemplate = document.querySelector('#item').content;
+  const itemElement = itemTemplate.querySelector('.photo-grid__item').cloneNode(true);
+  itemElement.querySelector('.photo-grid__photo').src = picURLField.value;
+  let rect = itemElement.querySelector('.photo-grid__rectangle');
+  for (let i = 0; i < rect.childNodes.length; i++) {
+    if (rect.childNodes[i].className == "photo-grid__title") {
+      name = rect.childNodes[i];
       break;
     }        
   }
-  for (let i = 0; i < rectangle.childNodes.length; i++) {
-    if (rectangle.childNodes[i].className == "photo-grid__title") {
-      name = rectangle.childNodes[i];
-      break;
-    }        
-  }
-  photo.src = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg';
-  name.textContent = 'jghg';
-  list.prepend(copy);
-  //typeElement.textContent = occupationField.value;
-  popupName.classList.remove('popup_open');
+  name.textContent = picNameField.value;
+  itemElement.querySelector('.photo-grid__heart').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('photo-grid__heart_active');
+  }); 
+  list.prepend(itemElement);
+  popupPlace.classList.remove('popup_open');
 });
+
+const basket = document.querySelector('.photo-grid__basket');
+basket.addEventListener('click', function () {
+  const listItem = basket.closest('.photo-grid__item');
+  console.log(listItem);
+  listItem.remove();
+}); 
+//basket.addEventListener('click', function(){
+
+//});
 
 
 
