@@ -103,6 +103,11 @@ function addPlace (titleValue, picValue) {
   }); 
   placeContainer.append(picElement, basketButtonElement, rectangleElement);
   placeGrid.append(placeContainer);
+  const basketButton = placeContainer.querySelector('.photo-grid__basket');
+  basketButton.addEventListener ('click', function(evt) {
+    const basket = evt.target.closest('.photo-grid__item');
+    basket.remove();
+  });
 }
 
 initialCards.forEach (function(item){
@@ -126,17 +131,17 @@ formPlace.addEventListener('submit', function(event){
   name.textContent = picNameField.value;
   itemElement.querySelector('.photo-grid__heart').addEventListener('click', function (evt) {
     evt.target.classList.toggle('photo-grid__heart_active');
-  }); 
+  });
+  const basketButton = itemElement.querySelector('.photo-grid__basket');
+  basketButton.addEventListener ('click', function(evt) {
+    const basket = evt.target.closest('.photo-grid__item');
+    basket.remove();
+  });
   list.prepend(itemElement);
   popupPlace.classList.remove('popup_open');
 });
 
-const basket = document.querySelector('.photo-grid__basket');
-basket.addEventListener('click', function () {
-  const listItem = basket.closest('.photo-grid__item');
-  console.log(listItem);
-  listItem.remove();
-}); 
+
 //basket.addEventListener('click', function(){
 
 //});
