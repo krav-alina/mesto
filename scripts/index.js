@@ -45,6 +45,10 @@ const list = document.querySelector('.photo-grid');
 const listItem = document.querySelector('.photo-grid__item');
 const formPlace = document.getElementById('formPlace');
 
+//popup Pic
+const popupPic = document.getElementById('popupPic');
+const pic = document.querySelector('.popup__photo');
+const closeButtonPic = document.getElementById('closeButtonPic');
 
 editButtonSmall.addEventListener('click', function(){
     popupName.classList.add('popup_open');
@@ -66,6 +70,7 @@ function closePopup (button, popup) {
 
 closePopup (closeButtonName, popupName);
 closePopup (closeButtonPlace, popupPlace);
+closePopup (closeButtonPic, popupPic);
 
 formElement.addEventListener('submit', function(event){
     event.preventDefault();
@@ -81,9 +86,12 @@ function addPlace (titleValue, picValue) {
   const placeContainer = document.createElement('div');
   placeContainer.classList.add('photo-grid__item');
 
-  const picElement = document.createElement('img');
+  const picElement = document.createElement('button');
   picElement.classList.add('photo-grid__photo');
-  picElement.src = picValue; 
+
+  const picImgElement = document.createElement('img');
+  picImgElement.classList.add('photo-grid__photo');
+  picImgElement.src = picValue; 
   
   const basketButtonElement = document.createElement('button');
   basketButtonElement.classList.add('photo-grid__basket');
@@ -101,12 +109,19 @@ function addPlace (titleValue, picValue) {
   rectangleElement.querySelector('.photo-grid__heart').addEventListener('click', function (evt) {
     evt.target.classList.toggle('photo-grid__heart_active');
   }); 
+  picElement.append(picImgElement);
   placeContainer.append(picElement, basketButtonElement, rectangleElement);
   placeGrid.append(placeContainer);
   const basketButton = placeContainer.querySelector('.photo-grid__basket');
   basketButton.addEventListener ('click', function(evt) {
     const basket = evt.target.closest('.photo-grid__item');
     basket.remove();
+  });
+  const picButton = placeContainer.querySelector('.photo-grid__photo');
+  picButton.addEventListener ('click', function(evt) {
+    popupPic.classList.add('popup_open');
+    evt.target.classList.add('.popup_photo');
+    pic.src = evt.target.src;
   });
 }
 
@@ -137,14 +152,18 @@ formPlace.addEventListener('submit', function(event){
     const basket = evt.target.closest('.photo-grid__item');
     basket.remove();
   });
+  
   list.prepend(itemElement);
   popupPlace.classList.remove('popup_open');
+  const picButton = itemElement.querySelector('.photo-grid__photo');
+  picButton.addEventListener ('click', function(evt) {
+    popupPic.classList.add('popup_open');
+    evt.target.classList.add('.popup_photo');
+    pic.src = evt.target.src;
+  });
 });
 
 
-//basket.addEventListener('click', function(){
-
-//});
 
 
 

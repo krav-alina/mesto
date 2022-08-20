@@ -4,6 +4,8 @@
     object-fit: cover;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    background: center no-repeat;
+    cursor: pointer;
 }
 
 @media screen and (max-width:914px){
@@ -19,3 +21,4 @@
         max-height: 282px;
     }  
 } 
+
