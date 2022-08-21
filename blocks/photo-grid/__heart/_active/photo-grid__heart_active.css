@@ -1,6 +1,4 @@
 .photo-grid__heart_active{
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #000;
+    background: url(../../../../images/__heart_active.svg);
 }  

@@ -1,21 +1,26 @@
-.photo-grid__photo{
+.photo-grid__photo-button{
     max-width: 282px;
     height: 282px;
     object-fit: cover;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    background: none;
+    cursor: pointer;
+    padding:0;
+    border: none;
 }
 
 @media screen and (max-width:914px){
-    .photo-grid__photo{
+    .photo-grid__photo-button{
         max-width: 180px;
         max-height: 200px;
     }  
 } 
 
 @media screen and (max-width:620px){
-    .photo-grid__photo{
+    .photo-grid__photo-button{
         max-width:282px;
         max-height: 282px;
     }  
 } 
+
