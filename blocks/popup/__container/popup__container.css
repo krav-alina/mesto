@@ -1,10 +1,9 @@
 .popup__container{
-    position:fixed;
+    position:relative;
+    margin: auto;
     align-self: center;
     top: 50%;
-    left: 50%;
     margin-top: -290px;
-    margin-left: -215px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +20,5 @@
         margin-top: -286px;
         width: 282px;
         height: 322px;
-        left: 76%;
     }  
 } 

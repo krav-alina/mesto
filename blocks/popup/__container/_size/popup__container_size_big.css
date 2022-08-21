@@ -1,7 +1,13 @@
 .popup__container_size_big{
+    position: relative;
+    max-width: 75vW;
+    max-height: 75vh;
     width: 75vW;
     height: 75vh;
     background: none;
     border-radius: 0px;
+    margin:auto;
+    margin-top: 90px;
+    margin-bottom: auto;
 }    
 
