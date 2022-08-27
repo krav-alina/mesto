@@ -100,7 +100,9 @@ profileForm.addEventListener('submit', function(event){
 
 function createCard (titleValue, picValue) {
   const placeContainer = itemTemplate.querySelector('.photo-grid__item').cloneNode(true);
-  placeContainer.querySelector('.photo-grid__photo-image').src = picValue;
+  const placeContainerPicture = placeContainer.querySelector('.photo-grid__photo-image');
+  placeContainerPicture.src = picValue;
+  placeContainerPicture.alt = picValue;
   const rectangleElement = placeContainer.querySelector('.photo-grid__rectangle');
   let titleElement = null;
   titleElement = rectangleElement.querySelector('.photo-grid__title');
@@ -113,15 +115,10 @@ function createCard (titleValue, picValue) {
     const basket = evt.target.closest('.photo-grid__item');
     basket.remove();
   });
-  const picButton = placeContainer.querySelector('.photo-grid__photo-button');
-  picButton.addEventListener ('click', function(evt) {
+  placeContainerPicture.addEventListener ('click', function(evt) {
     openPopup (picturePopup);
-    evt.target.classList.add('.popup_photo');
     pic.src = evt.target.src;
-    const parent = evt.target.parentNode;
-    const parentOne = parent.parentNode
-    const rectangle = parentOne.querySelector('.photo-grid__rectangle');
-    picTitle.textContent = rectangle.querySelector('.photo-grid__title').textContent;
+    picTitle.textContent = titleValue;
   });
   return placeContainer;
 }

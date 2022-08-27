@@ -1,6 +1,4 @@
 .photo-grid__item{
-    display: grid;
-    grid-template-rows: repeat(2, minmax(min-content,max-content));
     border-radius: 12px;
     margin-top: 3px;
     position: relative;

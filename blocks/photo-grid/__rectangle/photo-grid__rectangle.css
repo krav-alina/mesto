@@ -9,15 +9,3 @@
     align-items: center;
     justify-content: space-between;
 }
-
-@media screen and (max-width:914px){
-    .photo-grid__rectangle{
-        max-width: 180px;
-    }  
-} 
-
-@media screen and (max-width:620px){
-    .photo-grid__rectangle{
-        max-width:282px;
-    }  
-} 
