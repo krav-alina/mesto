@@ -1,12 +1,11 @@
 .popup__container_size_big{
-    max-width: 75vw;
-    max-height: 75vh;
-    width: 75vw;
-    height: 75vh;
-    background: none;
-    border-radius: 0px;
-    margin:auto;
-    margin-top: 90px;
-    margin-bottom: 90px;
+    display: flex;
+    position: fixed;
+    z-index: 3;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
 }    
 

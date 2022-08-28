@@ -1,10 +1,6 @@
 .popup__photo{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    background: center no-repeat;
+    max-width: 75vw;
+    max-height: 75vh;
 }
 
 
