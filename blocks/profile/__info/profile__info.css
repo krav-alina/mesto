@@ -11,6 +11,7 @@
     .profile__info {
       margin:auto;
       margin-top: 26px;
+      max-width: 282px;
     }  
   } 
   
