@@ -104,8 +104,7 @@ function createCard (titleValue, picValue) {
   placeContainerPicture.src = picValue;
   placeContainerPicture.alt = picValue;
   const rectangleElement = placeContainer.querySelector('.photo-grid__rectangle');
-  let titleElement = null;
-  titleElement = rectangleElement.querySelector('.photo-grid__title');
+  let titleElement = rectangleElement.querySelector('.photo-grid__title');
   titleElement.textContent = titleValue;
   rectangleElement.querySelector('.photo-grid__heart').addEventListener('click', function (evt) {
     evt.target.classList.toggle('photo-grid__heart_active');
@@ -118,6 +117,7 @@ function createCard (titleValue, picValue) {
   placeContainerPicture.addEventListener ('click', function(evt) {
     openPopup (picturePopup);
     pic.src = evt.target.src;
+    pic.alt = titleValue;
     picTitle.textContent = titleValue;
   });
   return placeContainer;
