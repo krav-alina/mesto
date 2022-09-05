@@ -136,6 +136,41 @@ placeForm.addEventListener('submit', function(event){
 });
 
 
+const checkInputValidity = (inputElement) => {
+  if (!inputElement.validity.valid) {
+    inputElement.classList.add('popup__input_type_error');
+    //popupSaveButton.classList.add('popup__button_disabled');
+  } else {
+    inputElement.classList.remove('popup__input_type_error');
+    //classList.remove('popup__button_disabled');
+  }
+};
 
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  //const popupSaveButton = Array.from(formElement.querySelectorAll('.popup__button'));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      checkInputValidity(inputElement);
+    });
+  });
+  /*popupSaveButton.forEach((button) => {
+    button.addEventListener('input', function () {
+      checkInputValidity(inputElement);
+    });
+  });*/
+};
+
+const enableValidation = () =>{
+  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  formList.forEach((formElement)=>{
+    formElement.addEventListener('submit', function (){
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+}
+
+enableValidation();
 
 
