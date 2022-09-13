@@ -12,6 +12,38 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = '';
 };
 
+const hideErrorInInput = (popupElement) => {
+  const inputList = Array.from(popupElement.querySelectorAll(inputSelector));
+  inputList.forEach((inputElement) => {
+    hideInputError (popupElement.querySelector(formSelector), inputElement);
+  });
+}
+
+const enableClosure = () => {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+  popupList.forEach((popupElement)=>{
+    popupElement.querySelector('.popup__close-button').addEventListener('click', function(){
+      hideErrorInInput(popupElement);
+      closePopup (popupElement);
+    });
+    document.addEventListener('keydown',function(evt){
+      if (evt.key == 'Escape') {
+        hideErrorInInput(popupElement);
+        closePopup (popupElement);
+      };
+    });
+    popupElement.addEventListener('click',function(evt){
+      const isClosest = evt.target.closest('.popup__container');
+      if (!isClosest && (popupElement.classList.contains('popup_open'))) {
+        hideErrorInInput(popupElement);
+        closePopup (popupElement);
+      };
+    });
+  });
+};
+
+enableClosure();
+
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
