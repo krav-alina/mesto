@@ -13,9 +13,9 @@ const hideInputError = (formElement, inputElement) => {
 };
 
 const hideErrorInInput = (popupElement) => {
-  const inputList = Array.from(popupElement.querySelectorAll(inputSelector));
+  const inputList = Array.from(popupElement.querySelectorAll('.popup__input'));
   inputList.forEach((inputElement) => {
-    hideInputError (popupElement.querySelector(formSelector), inputElement);
+    hideInputError (popupElement.querySelector('.popup__form'), inputElement);
   });
 }
 
