@@ -15,17 +15,17 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
   errorElement.classList.add(config.errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement,config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('popup__input_type_error');
-  errorElement.classList.remove('popup__input-error');
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorClass);
   errorElement.textContent = '';
 };
 
-const hideErrorInInput = (popupElement) => {
-  const inputList = Array.from(popupElement.querySelectorAll('.popup__input'));
+const hideErrorInInput = (popupElement, config) => {
+  const inputList = Array.from(popupElement.querySelectorAll(config.inputSelector));
   inputList.forEach((inputElement) => {
-    hideInputError (popupElement.querySelector('.popup__form'), inputElement);
+    hideInputError (popupElement.querySelector(config.formSelector), inputElement, config);
   });
 }
 
@@ -34,39 +34,17 @@ const checkEscKey = (evt) => {
   popupList.forEach((popupElement)=>{
     if (popupElement.classList.contains('popup_open')) {
       if (evt.key == 'Escape') {
-        hideErrorInInput(popupElement);
         closePopup (popupElement);
       };
     };  
   });
 }
 
-
-const enableClosure = () => {
-  const popupList = Array.from(document.querySelectorAll('.popup'));
-  popupList.forEach((popupElement)=>{
-    popupElement.querySelector('.popup__close-button').addEventListener('click', function(){
-      hideErrorInInput(popupElement);
-      closePopup (popupElement);
-    });
-    document.addEventListener('keydown', checkEscKey);
-    popupElement.addEventListener('click',function(evt){
-      const isClosest = evt.target.closest('.popup__container');
-      if (!isClosest && (popupElement.classList.contains('popup_open'))) {
-        hideErrorInInput(popupElement);
-        closePopup (popupElement);
-      };
-    });
-  });
-};
-
-enableClosure();
-
 const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, config);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   }
 };
 
