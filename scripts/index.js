@@ -60,12 +60,14 @@ function closePopup (popup) {
 
 profileEditButton.addEventListener('click', function(){
   openPopup (profilePopup);
+  document.addEventListener('keydown', checkEscKey);
   nameField.value = titleElement.textContent;
   occupationField.value = typeElement.textContent;
 });
 
 placeAddButton.addEventListener('click', function(){
   openPopup (placePopup);
+  document.addEventListener('keydown', checkEscKey);
   picNameField.value = '';
   picURLField.value = '';
   placePopup.querySelector('.popup__button').classList.add('popup__button_disabled');
@@ -97,6 +99,7 @@ function createCard (titleValue, picValue) {
   });
   placeContainerPicture.addEventListener ('click', function(evt) {
     openPopup (picturePopup);
+    document.addEventListener('keydown', checkEscKey);
     pic.src = evt.target.src;
     pic.alt = titleValue;
     picTitle.textContent = titleValue;
