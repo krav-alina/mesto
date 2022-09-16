@@ -29,16 +29,6 @@ const hideErrorInInput = (popupElement, config) => {
   });
 }
 
-const checkEscKey = (evt) => {
-  const popupList = Array.from(document.querySelectorAll('.popup'));
-  popupList.forEach((popupElement)=>{
-    if (popupElement.classList.contains('popup_open')) {
-      if (evt.key == 'Escape') {
-        closePopup (popupElement);
-      };
-    };  
-  });
-}
 
 const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
