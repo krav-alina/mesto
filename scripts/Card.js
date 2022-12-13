@@ -1,7 +1,9 @@
 
 export class Card {
-  constructor(templateSelector) {
+  constructor(name, link, templateSelector) {
       this._templateSelector = templateSelector;
+      this._name = name;
+      this._link = link;
   }
 
   _getTemplate() {

@@ -62,7 +62,6 @@ const picTitle = document.querySelector('.popup__title_color_white');
 const itemTemplate = document.querySelector('#item').content;
 //const placeGrid = document.querySelector('.photo-grid');
 
-const formValidator = new FormValidator();
 function openPopup (popup) {
   popup.classList.add('popup_open');
   document.addEventListener('keydown', checkEscKey);
@@ -110,13 +109,6 @@ profileForm.addEventListener('submit', function(event){
     closePopup (profilePopup);
 });
 
-/*placeForm.addEventListener('submit', function(event){
-  event.preventDefault();
-  titleElement.textContent = nameField.value;
-  typeElement.textContent = occupationField.value;
-  closePopup (placePopup);
-});*/
-
 const checkEscKey = (evt) => {
   const popupList = Array.from(document.querySelectorAll('.popup'));
   popupList.forEach((popupElement)=>{
@@ -146,31 +138,15 @@ const enableClosure = () => {
 
 enableClosure();
 
-class Card1 extends Card{
-  constructor(data, templateSelector) {
-    super(templateSelector);
-    this._name = data.name;
-    this._link = data.link;
-  }
-}
-
-class Card2 extends Card{
-  constructor(templateSelector) {
-    super(templateSelector);
-    this._name = document.getElementById('picName-input').value;
-    this._link = document.getElementById('picURL-input').value;
-  }
-}
-
 initialCards.forEach((item) => {
-  const card = new Card1(item, '#item');
+  const card = new Card(item.name, item.link, '#item');
   const cardElement = card.generateCard();
   document.querySelector('.photo-grid').append(cardElement);
 });
 
 placeForm.addEventListener('submit', function(event){
   event.preventDefault();
-  const card = new Card2('#item');
+  const card = new Card(picNameField.value, picURLField.value, '#item');
   const cardElement = card.generateCard();
   document.querySelector('.photo-grid').prepend(cardElement);
   closePopup (placePopup);
