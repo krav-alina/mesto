@@ -1,9 +1,11 @@
 
 export class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, popup, openPopup) {
       this._templateSelector = templateSelector;
       this._name = name;
       this._link = link;
+      this._popup = popup;
+      this._openPopup = openPopup;
   }
 
   _getTemplate() {
@@ -30,15 +32,14 @@ export class Card {
     this._element.querySelector('.photo-grid__heart').classList.toggle('photo-grid__heart_active');
   }
   _handleBasketClick () {
-    const basket = this._element.querySelector('.photo-grid__basket').closest('.photo-grid__item');
-    basket.remove();
+    this._element.remove();
+    this._element = null;
   }
   _handlePictureClick () {
-    const popup = document.getElementById('popupPic');
-    popup.classList.add('popup_open');
-    popup.querySelector('.popup__photo').src = this._link;
-    popup.querySelector('.popup__photo').alt = this._name;
-    popup.querySelector('.popup__title_color_white').textContent = this._name;
+    this._openPopup(this._popup);
+    this._popup.querySelector('.popup__photo').src = this._link;
+    this._popup.querySelector('.popup__photo').alt = this._name;
+    this._popup.querySelector('.popup__title_color_white').textContent = this._name;
   }
 
   _setEventListeners() {

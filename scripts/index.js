@@ -60,25 +60,16 @@ const picturePopup = document.getElementById('popupPic');
 const pic = document.querySelector('.popup__photo');
 const picTitle = document.querySelector('.popup__title_color_white');
 const itemTemplate = document.querySelector('#item').content;
-//const placeGrid = document.querySelector('.photo-grid');
 
 function openPopup (popup) {
-  popup.classList.add('popup_open');
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', checkEscKey);
 }; 
 
 function closePopup (popup) {
-    popup.classList.remove('popup_open');
+    popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', checkEscKey);
 };  
-
-function hideInputError (form, inputElement) {
-  const errorElement = form.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('popup__input_type_error');
-  errorElement.classList.remove('popup__input-error');
-  errorElement.textContent = '';
-};
-
 
 profileEditButton.addEventListener('click', function(){
   openPopup (profilePopup);
@@ -86,8 +77,9 @@ profileEditButton.addEventListener('click', function(){
   occupationField.value = typeElement.textContent;
   profilePopup.querySelector('.popup__button').classList.add('popup__button_disabled');
   const inputList = Array.from(profilePopup.querySelectorAll('.popup__input'));
+  const validity = new FormValidator(nameForm, validationConfig);
   inputList.forEach((inputElement) => {
-    hideInputError (nameForm, inputElement);
+    validity.hideInputError(inputElement);
   });
 });
 
@@ -97,8 +89,9 @@ placeAddButton.addEventListener('click', function(){
   picURLField.value = '';
   placePopup.querySelector('.popup__button').classList.add('popup__button_disabled');
   const inputList = Array.from(placePopup.querySelectorAll('.popup__input'));
+  const validity = new FormValidator(placeForm, validationConfig);
   inputList.forEach((inputElement) => {
-    hideInputError (placeForm, inputElement);
+    validity.hideInputError(inputElement);
   });
 });
 
@@ -110,14 +103,10 @@ profileForm.addEventListener('submit', function(event){
 });
 
 const checkEscKey = (evt) => {
-  const popupList = Array.from(document.querySelectorAll('.popup'));
-  popupList.forEach((popupElement)=>{
-    if (popupElement.classList.contains('popup_open')) {
-      if (evt.key == 'Escape') {
-        closePopup (popupElement);
-      };
-    };  
-  });
+  const popup = document.querySelector('.popup.popup_opened');
+  if (evt.key == 'Escape') {
+    closePopup (popup);
+  };
 }
 
 const enableClosure = () => {
@@ -126,10 +115,9 @@ const enableClosure = () => {
     popupElement.querySelector('.popup__close-button').addEventListener('click', function(){
       closePopup (popupElement);
     });
-    document.addEventListener('keydown', checkEscKey);
     popupElement.addEventListener('click',function(evt){
       const isClosest = evt.target.closest('.popup__container');
-      if (!isClosest && (popupElement.classList.contains('popup_open'))) {
+      if (!isClosest && (popupElement.classList.contains('popup_opened'))) {
         closePopup (popupElement);
       };
     });
@@ -138,17 +126,21 @@ const enableClosure = () => {
 
 enableClosure();
 
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, '#item');
+function createCard (name, link, picturePopup, openPopup) {
+  const card = new Card(name, link, '#item', picturePopup, openPopup);
   const cardElement = card.generateCard();
-  document.querySelector('.photo-grid').append(cardElement);
+  return cardElement;
+};
+
+initialCards.forEach((item) => {
+  const cardElement = createCard (item.name, item.link, picturePopup, openPopup);
+  cardsContainer.append(cardElement);
 });
 
 placeForm.addEventListener('submit', function(event){
   event.preventDefault();
-  const card = new Card(picNameField.value, picURLField.value, '#item');
-  const cardElement = card.generateCard();
-  document.querySelector('.photo-grid').prepend(cardElement);
+  const cardElement = createCard (picNameField.value, picURLField.value, picturePopup, openPopup);
+  cardsContainer.prepend(cardElement);
   closePopup (placePopup);
 });
 

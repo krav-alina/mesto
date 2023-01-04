@@ -3,6 +3,8 @@ export class FormValidator {
   constructor(formElement, config) {
     this._formElement = formElement;
     this._config = config;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+    this._popupSaveButton = this._formElement.querySelector(this._config.submitButtonSelector);
   }
 
 
@@ -14,7 +16,7 @@ export class FormValidator {
     errorElement.classList.add(this._config.errorClass);
   };
   
-  _hideInputError = (inputElement) => {
+  hideInputError = (inputElement) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this._config.inputErrorClass);
     errorElement.classList.remove(this._config.errorClass);
@@ -25,7 +27,7 @@ export class FormValidator {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, errorMessage);
     } else {
-      this._hideInputError(inputElement);
+      this.hideInputError(inputElement);
     }
   };
   
@@ -45,16 +47,12 @@ export class FormValidator {
   
   _setEventListeners () {
     
-    const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
-    const popupSaveButton = this._formElement.querySelector(this._config.submitButtonSelector);
-    this._toggleButtonState (inputList, popupSaveButton);
-    // проблема ниже
-    inputList.forEach((inputElement) => {
-      
+    this._toggleButtonState (this._inputList, this._popupSaveButton);
+
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
-        //console.log(this._formElement);
         this._checkInputValidity(inputElement, inputElement.validationMessage);
-        this._toggleButtonState (inputList, popupSaveButton);
+        this._toggleButtonState (this._inputList, this._popupSaveButton);
       });
     });
   };
