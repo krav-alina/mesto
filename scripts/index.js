@@ -77,9 +77,8 @@ profileEditButton.addEventListener('click', function(){
   occupationField.value = typeElement.textContent;
   profilePopup.querySelector('.popup__button').classList.add('popup__button_disabled');
   const inputList = Array.from(profilePopup.querySelectorAll('.popup__input'));
-  const validity = new FormValidator(nameForm, validationConfig);
   inputList.forEach((inputElement) => {
-    validity.hideInputError(inputElement);
+    nameFormVal.hideInputError(inputElement);
   });
 });
 
@@ -89,9 +88,8 @@ placeAddButton.addEventListener('click', function(){
   picURLField.value = '';
   placePopup.querySelector('.popup__button').classList.add('popup__button_disabled');
   const inputList = Array.from(placePopup.querySelectorAll('.popup__input'));
-  const validity = new FormValidator(placeForm, validationConfig);
   inputList.forEach((inputElement) => {
-    validity.hideInputError(inputElement);
+    placeFormVal.hideInputError(inputElement);
   });
 });
 
@@ -103,8 +101,8 @@ profileForm.addEventListener('submit', function(event){
 });
 
 const checkEscKey = (evt) => {
-  const popup = document.querySelector('.popup.popup_opened');
   if (evt.key == 'Escape') {
+    const popup = document.querySelector('.popup.popup_opened');
     closePopup (popup);
   };
 }

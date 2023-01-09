@@ -31,28 +31,28 @@ export class FormValidator {
     }
   };
   
-  _hasInvalidInput (inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput () {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
   };
   
-  _toggleButtonState (inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      buttonElement.classList.add(this._config.inactiveButtonClass);
+  _toggleButtonState () {
+    if (this._hasInvalidInput()) {
+      this._popupSaveButton.classList.add(this._config.inactiveButtonClass);
     } else {
-      buttonElement.classList.remove(this._config.inactiveButtonClass);
+      this._popupSaveButton.classList.remove(this._config.inactiveButtonClass);
     }
   }; 
   
   _setEventListeners () {
     
-    this._toggleButtonState (this._inputList, this._popupSaveButton);
+    this._toggleButtonState ();
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement, inputElement.validationMessage);
-        this._toggleButtonState (this._inputList, this._popupSaveButton);
+        this._toggleButtonState ();
       });
     });
   };
